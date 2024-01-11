@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background-color: #007BFF;
+            padding: 15px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            color: #fff;
+        }
+
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        button {
+            padding: 10px 16px;
+            margin: 5px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #d3d3d3;
+        }
+
+        /* New Styles for Side-by-Side Forms */
+        #userManagementForms {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        #userManagementForms form {
+            flex-basis: calc(33.33% - 10px);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Admin Dashboard</h1>
+</header>
+
+
+<section id="dashboardHeadingContainer">
+    <h2 id="dashboardHeading">Dashboard</h2>
+</section>
+
+<section id="userManagement">
+    <div id="userManagementForms">
+
+        <!-- Add User Form -->
+        <form method="post" action="/add-user" id="addUserForm">
+            <h3>Add User</h3>
+            <label for="addUserId">User ID:</label>
+            <input type="text" id="addUserId" name="userid">
+            <label for="addEmail">Email:</label>
+            <input type="email" id="addEmail" name="emailid">
+            <label for="addPassword">Password:</label>
+            <input type="password" id="addPassword" name="password">
+            <label for="addFullname">Fullname:</label>
+            <input type="text" id="addFullname" name="username">
+            <label for="addUserType">User Type:</label>
+            <select id="addUserType" name="usertype">
+                <option value="admin">Admin</option>
+                <option value="candidate">Candidate</option>
+            </select>
+            <button type="submit">Add User</button>
+        </form>
+
+        <!-- Edit User Form -->
+        <form method="post" action="/edit-user" id="editUserForm">
+            <h3>Edit User</h3>
+            <label for="editId">User ID:</label>
+            <input type="text" id="editId" name="id">
+            <label for="editEmail">Email:</label>
+            <input type="email" id="editEmail" name="email">
+            <label for="editPassword">Password:</label>
+            <input type="password" id="editPassword" name="password">
+            <label for="editFullName">Username:</label>
+            <input type="text" id="editFullName" name="full_name">
+            <label for="editRole">Role:</label>
+            <input type="text" id="editRole" name="role">
+            <label for="editSubject">Subject:</label>
+            <input type="text" id="editSubject" name="subject">
+            <label for="editUserType">User Type:</label>
+            <select id="editUserType" name="usertype">
+
+                <option value="admin">Admin</option>
+                <option value="candidate">Candidate</option>
+            </select>
+            <button type="submit">Edit User</button>
+        </form>
+
+        <!-- Delete User Form -->
+        <form method="post" action="/delete-user" id="deleteUserForm">
+            <h3>Delete User</h3>
+            <label for="deleteId">User ID:</label>
+            <input type="text" id="deleteId" name="Id">
+            <button type="submit">Delete User</button>
+        </form>
+
+    </div>
+</section>
+<section id="userDetails">
+    <h3>User Details</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>FullName</th>
+            <th>Role</th>
+            <th>Subject</th>
+            <th>User Type</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Loop through users and display details -->
+        <tr th:each="user : ${user}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.password}"></td>
+            <td th:text="${user.full_name}"></td>
+            <td th:text="${user.role}"></td>
+            <td th:text="${user.subject}"></td>
+            <td th:text="${user.usertype}"></td>
+
+        </tr>
+        </tbody>
+    </table>
+</section>
+
+<script>
+    function showCourseManagement() {
+        // Implement logic to show Course Management section
+    }
+
+    function showAssessmentManagement() {
+        // Implement logic to show Assessment Management section
+    }
+
+    function showFeedbackManagement() {
+        // Implement logic to show Feedback Management section
+    }
+
+    function showPerformanceTracking() {
+        // Implement logic to show Performance Tracking section
+    }
+</script>
+
+</body>
+</html>

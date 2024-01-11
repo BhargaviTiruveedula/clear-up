@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scaled=1.0">
+    <link rel="icon" href="/images/logo.png" type="image/x-icon">
+    <title>ClearUp</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+        }
+
+        .navbar a {
+          color: white;
+          text-decoration: none;
+          margin: 0 10px;
+          font-size: 18px;
+        }
+
+        .navbar-heading {
+          margin: 0;
+          font-size: 24px;
+        }
+                    a {
+                text-decoration: none;
+            }
+
+            .col {
+                line-height: 2em;
+            }
+
+            ul {
+                list-style: none;
+            }
+
+            .navbar {
+                background-color: #313338;
+                width: 100%;
+                height:50px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 10px;
+                color: black;
+                font-size: 20px; /* Adjust font size as needed */
+            }
+
+            .navbar img {
+                width: 140px;
+                height: 50px;
+                margin-right: 50px;
+            }
+
+            #nav-links {
+                display: flex;
+                align-items: center;
+            }
+
+            #nav-links li {
+                margin: 0 15px;
+            }
+
+            .nav-links {
+                display: flex;
+                align-items: center;
+            }
+
+            .nav-links li {
+                margin: 0 30px;
+                cursor: pointer;
+            }
+
+
+        header {
+            width: 100vw;
+            height: 100vh;
+            background-image: url('/images/header.png');
+            background-position: bottom;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-content {
+            margin-bottom: 10px;
+            color: whitesmoke;
+            text-align: center;
+        }
+
+        .header-content h2 {
+            font-size: 9vmin;
+            margin-top: 500px;
+        }
+
+        .line {
+            width: 150px;
+            height: 4px;
+            background: #fc036b;
+            margin: 10px auto;
+            border-radius: 5px;
+        }
+
+        .header-content h1 {
+            font-size: 5vmin;
+            margin-top: 40px;
+            margin-bottom: 30px;
+        }
+
+        .ctn {
+                padding: 8px 15px;
+                background: #f5739a;
+                border-radius: 30px;
+                color: whitesmoke;
+                transition: background-color 0.3s ease;
+            }
+
+            .ctn:hover {
+                background-color:#fdca6b; /* Change the color on hover */
+                color:black;
+            }
+
+        .menu-btn {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            width: 40px;
+            cursor: pointer;
+            display: none;
+        }
+
+        section {
+            width: 80%;
+            margin: 0px auto;
+        }
+
+        .title {
+            padding-top: 20px;
+            text-align: center;
+            font-size: 3vmin;
+            color: #49497e;
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        .row .col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .events .row {
+            margin-top: 50px;
+        }
+
+        h4 {
+            font-size: 3vmin;
+            color: #49497e;
+        }
+
+        .post {
+            display: flex;
+            line-height: 2em;
+            align-items: center;
+            border: 1px solid #333;
+            padding: 20px;
+            margin: 20px;
+        }
+
+        .post img {
+            width: 60%;
+            height: auto;
+            object-fit: cover;
+            margin-right: 40px;
+        }
+
+        .post .post1 {
+            width: 50%;
+            padding: 20px;
+            border-spacing: 70px;
+            margin-left: 50px;
+            flex: 1;
+        }
+
+        .Videos {
+            display: flex;
+            line-height: 2em;
+            align-items: center;
+            border: 1px solid #333;
+            padding: 20px;
+            margin: 20px;
+        }
+
+        .Videos img {
+            width: 50%;
+            height: auto;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+
+        .Videos .videos-1 {
+            width: 50%;
+            padding: 20px;
+            border-spacing: 70px;
+            margin-left: 30px;
+            flex: 1;
+        }
+
+        .Connect {
+            display: flex;
+            line-height: 2em;
+            align-items: center;
+            border: 1px solid #333;
+            padding: 20px;
+            margin: 20px;
+        }
+
+        .Connect img {
+            width: 50%;
+            height: auto;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+
+        .Connect .connect-1 {
+            width: 50%;
+            padding: 20px;
+            border-spacing: 70px;
+            margin-left: 30px;
+            flex: 1;
+        }
+
+        footer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            background-color: #222;
+        }
+
+        footer .col {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            margin-left: 20px;
+            color: white;
+        }
+
+        footer .col img {
+            width: 100px;
+            height: 30px;
+        }
+
+        footer p {
+            font-size: 20px;
+            margin: 6px 0 8px 0;
+        }
+
+        footer a {
+            font-size: 13px;
+            text-decoration: none;
+            color: #222;
+            margin-bottom: 10px;
+        }
+
+        @media only screen and (max-width: 850px) {
+            .menu-btn {
+                display: block;
+            }
+
+            .navbar {
+                padding: 0;
+            }
+
+            .logo {
+                position: absolute;
+                top: 30px;
+                left: 30px;
+            }
+
+            #nav-links {
+                flex-direction: column;
+                width: 100%;
+                height: 100vh;
+                justify-content: center;
+                background: #484872;
+                margin-top: -900px;
+                transition: all 0.5s ease;
+            }
+
+            .mobile-menu {
+                margin-top: 0px;
+                border-bottom-right-radius: 30%;
+            }
+
+            #nav-links li {
+                margin: 30px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+<section id="header1" class="navbar">
+    <a href="#"><img src="/images/logo.png" width="80" height="30" class="logo" alt=""></a>
+    <div>
+        <ul id="nav-links">
+            <li class="active"><a href="/" th:href="@{/index}">Home</a></li>
+            <li class="ctn"><a href="/" th:href="@{/community}">Post Question</a></li>
+            <li class="ctn"><a href="/" th:href="@{/videos}">Videos</a></li>
+            <li class="ctn"><a href="/" th:href="@{/connect}">Connect</a></li>
+            <li class="ctn"><a href="/" th:href="@{/registration}">Sign up</a></li>
+            <li class="ctn"><a href="/" th:href="@{/select}">Sign in</a></li>
+        </ul>
+    </div>
+</section>
+
+<header>
+    <div class="header-content">
+        <h2>ClearUp</h2>
+        <div class="line"></div>
+        <h1>Solving Doubts Made Easy!</h1>
+        <a href="#" class="ctn">Explore More</a>
+    </div>
+</header>
+
+<!-- Rest of your code... -->
+
+<section class="events">
+    <div class="title">
+        <h1>What you will get?</h1>
+        <div class="line"></div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <img src="/images/img-1.png" alt="some-image">
+            <h1 color="violet">Teachers space</h1>
+            <h3 align="center">Connect with students, share your expertise, and build your online presence.</h3>
+            <div class="left">
+                <p>ClearUp offers:</p>
+                <ol>
+                    <li>Flexible scheduling.</li>
+                    <li>Reach a wider audience beyond geographical limitations.</li>
+                    <li>Make a real impact on students' academic success.</li>
+                </ol>
+            </div>
+            <a href="#" class="ctn">Login</a>
+        </div>
+        <div class="col">
+            <img src="/images/img-2.png" alt="some-image">
+            <h1 color="violet">Students space</h1>
+            <h3 align="center">Get personalized learning support from experienced teachers, anytime you need it.</h3>
+            <div class="right">
+                <p>ClearUp helps you:</p>
+                <ol>
+                    <li>Post your questions and get expert answers.</li>
+                    <li>Schedule convenient one-on-one meetings with teachers.</li>
+                    <li>Master any subject and achieve your academic goals.</li>
+                </ol>
+            </div>
+            <a href="#" class="ctn">Login</a>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="post">
+        <img src="/images/img-9.png">
+        <div class="post-1">
+            <h1>Post Question</h1>
+            <p>You have a friendly interface where you can post your doubt. That question can be answered by other students or teachers. You can get an explanation for your doubt.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="Videos">
+        <img src="/images/img-5.png">
+        <div class="videos-1">
+            <h1>YouTube Videos</h1>
+            <p>You have YouTube videos here. You can go through the videos which concept you want to have a clear explanation of a specified topic.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="Connect">
+        <img src="/images/img-6.png">
+        <div class="connect-1">
+            <h1>Connect With Teachers</h1>
+            <p>You have teachers list here. You can have a private chat with teachers to clear your doubts. Teachers can Schedule meetings based on the request of the students in private chat</p>
+        </div>
+    </div>
+</section>
+
+<footer class="section-p1">
+    <div class="col">
+        <img src="/images/logo.png" alt="">
+        <h2>Contact</h2>
+        <p><strong>Address:</strong>Torry Harris Business Solutions Pvt Ltd Global Tech village 6th Floor, Tower E Mylasandra- Pattengere Village RVCE, Banglore, Post Bangalore -560059</p>
+        <p><strong>Phone:</strong>+91 987654321</p>
+        <p><strong>Hours:</strong>9:00 - 18:00, Mon - Sat</p>
+    </div>
+</footer>
+
+<script>
+    const menuBtn = document.querySelector('.menu-btn')
+    const navlinks = document.querySelector('.nav-links')
+
+    menuBtn.addEventListener('click', () => {
+        navlinks.classList.toggle('mobile-menu')
+    })
+   src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"
+
+</script>
+</body>
+</html>

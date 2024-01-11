@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+</head>
+<body>
+ 
+	<!-- create navigation bar ( header) -->
+<br>
+<br>
+	<!-- Create HTML registration form -->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+ 
+				<!-- success message -->
+				<div th:if="${param.success}">
+					<div class="alert alert-info">You've successfully registered!</div>
+				</div>
+ 
+				<h1>Registration</h1>
+ 
+				<form th:action="@{/registration}" method="post" th:object="${user}"  enctype="multipart/form-data">
+					<!-- ... previous code remains unchanged ... -->
+ 
+    	<!-- Existing fields for full name, email, and password -->
+    				<div class="form-group">
+        				<label for="role">Role</label>
+        				<select id="role" name="role" class="form-control" onchange="toggleVisibility()" required>
+            				<option value="student">Student</option>
+            				<option value="teacher">Teacher</option>
+        				</select>
+    				</div>
+					
+					<div class="form-group">
+						<label class="control-label" for="firstName"> Full Name </label>
+						<input id="fullName" class="form-control" th:field="*{fullName}"
+							required autofocus="autofocus" />
+					</div>
+ 
+					<div class="form-group">
+						
+						<label class="control-label" for="email"> Email </label> <input
+							id="email" class="form-control" th:field="*{email}" required
+							autofocus="autofocus" />
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label" for="password"> Password </label> <input
+							id="password" class="form-control" type="password"
+							th:field="*{password}" required autofocus="autofocus" />
+					</div>
+					
+					<div class=" hidden form-group" id="teacher">
+                        <label for="certificates">Upload Certificates</label>
+                        <input type="file" id="certificates" name="certificates" class="form-control"/>
+         				<br>
+        				<label for="subject">Subject</label>
+        				<select id="subject" name="subject" class="form-control" onchange="toggleVisibility()" required>
+            				<option value="science">Science</option>
+            				<option value="maths">Maths</option>
+            				<option value="social">Social</option>
+            				<option value="english">English</option>
+        				</select>
+    				</div>
+         			
+         			
+					
+					<div class="form-group">
+						<button type="submit" class="btn btn-success">Register</button>
+						<span>Already registered? <a href="/" th:href="@{/login}">Login here</a></span>
+					</div>
+					
+				</form>
+			</div>
+		</div>
+	</div>
+	<script>
+        function toggleVisibility() {
+           var selectedOption = document.getElementById("role").value;
+        var teacherDiv = document.getElementById("teacher");
+ 
+        if (selectedOption === "teacher") {
+            teacherDiv.classList.remove("hidden");
+        } else {
+            teacherDiv.classList.add("hidden");
+        }
+        }
+</script>
+	
+</body>
+</html>

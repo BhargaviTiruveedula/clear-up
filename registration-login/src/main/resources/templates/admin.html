@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Dashboard</title>
+    <style>
+        /* Add some styling for checkboxes */
+        .checkbox-column {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>Welcome to Admin Dashboard</h2>
+
+    <!-- Display Teacher Table with Checkboxes -->
+    <h3>Teacher Table</h3>
+    <form th:action="@{/admin/delete}" method="post">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th class="checkbox-column">Delete</th>
+                    <th>ID</th>
+                    <th>Email</th>
+                    <th>Full Name</th>
+                    <th>Role</th>
+                    <th>Subject</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="teacher : ${teachers}">
+                    <td class="checkbox-column"><input type="checkbox" th:name="'selectedTeachers'" th:value="${teacher.id}" /></td>
+                    <td th:text="${teacher.id}"></td>
+                    <td th:text="${teacher.email}"></td>
+                    <td th:text="${teacher.fullName}"></td>
+                    <td th:text="${teacher.role}"></td>
+                    <td th:text="${teacher.subject}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Display Student Table with Checkboxes -->
+        <h3>Student Table</h3>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th class="checkbox-column">Delete</th>
+                    <th>ID</th>
+                    <th>Email</th>
+                    <th>Full Name</th>
+                    <th>Role</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="student : ${students}">
+                    <td class="checkbox-column"><input type="checkbox" th:name="'selectedStudents'" th:value="${student.id}" /></td>
+                    <td th:text="${student.id}"></td>
+                    <td th:text="${student.email}"></td>
+                    <td th:text="${student.fullName}"></td>
+                    <td th:text="${student.role}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Common Delete Button -->
+        <button type="submit">Delete Selected Users</button>
+    </form>
+</body>
+</html>

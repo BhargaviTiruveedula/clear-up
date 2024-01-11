@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/images/logo.png" type="image/x-icon">
+    <title>Video Lectures</title>
+    <style>
+        /* Basic styling for clarity */
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+        }
+
+        .navbar a {
+          color: white;
+          text-decoration: none;
+          margin: 0 10px;
+          font-size: 18px;
+        }
+
+        .navbar-heading {
+          margin: 0;
+          font-size: 24px;
+        }
+
+
+        .active {
+            color: #fc036b;
+            font-weight: bold;
+        }
+
+        a {
+                text-decoration: none;
+            }
+
+            .col {
+                line-height: 2em;
+            }
+
+            ul {
+                list-style: none;
+            }
+
+            .navbar {
+                background-color: #313338;
+                width: 100%;
+                height:50px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 10px;
+                color: black;
+                font-size: 20px; /* Adjust font size as needed */
+            }
+
+            .navbar img {
+                width: 140px;
+                height: 50px;
+                margin-right: 50px;
+            }
+
+            #nav-links {
+                display: flex;
+                align-items: center;
+            }
+
+            #nav-links li {
+                margin: 0 15px;
+            }
+
+            .nav-links {
+                display: flex;
+                align-items: center;
+            }
+
+            .nav-links li {
+                margin: 0 30px;
+                cursor: pointer;
+            }
+
+
+            .ctn {
+                padding: 8px 15px;
+                background: #f5739a;
+                border-radius: 30px;
+                color: whitesmoke;
+                transition: background-color 0.3s ease;
+            }
+
+            .ctn:hover {
+                background-color:#fdca6b; /* Change the color on hover */
+                color:black;
+            }
+        /* Header styles */
+        .header {
+          background-color: #f2f2f2;
+          padding: 20px;
+          text-align: left;
+        }
+        .header h1 {
+          margin: 0;
+          font-size: 24px;
+          color: #333;
+        }
+        /* Basic layout styles */
+        .content {
+          padding: 20px;
+        }
+        /* Subject list styles */
+        .subject-list {
+          list-style: none;
+          padding: 0;
+        }
+        .subject-list li {
+          cursor: pointer;
+          margin-bottom: 5px;
+          padding: 10px;
+          background-color: #f0f0f0;
+          border-radius: 5px;
+        }
+        .subject-list li:hover {
+          background-color: #ddd;
+        }
+        .videos {
+          display: none; /* Hide videos by default */
+          margin-top: 20px;
+        }
+        .videos iframe {
+          width: 80%;
+          height: 400px;
+          border: none;
+        }
+        .videos p {
+          margin: 8px 0;
+        }
+        /* New styles for arranging playlists side by side */
+        .playlist-container {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-around;
+          margin-bottom: 20px;
+        }
+        .class-container {
+          flex: 1 1 45%; /* Adjust the width as needed */
+          margin: 10px;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          // Get all subject elements
+          const subjects = document.querySelectorAll('.subject');
+
+          // Attach click event listener to each subject
+          subjects.forEach(subject => {
+            subject.addEventListener('click', function() {
+              const selectedSubject = this.textContent;
+              displayVideos(selectedSubject); // Call your function to display videos for the selected subject
+            });
+          });
+        });
+
+        function displayVideos(subject) {
+          const videosContainer = document.querySelector('.videos');
+
+          if (subject === 'Maths') {
+            videosContainer.innerHTML = `
+    <h2>Videos for ${subject}</h2>
+    <div class="playlist-container">
+    <div class="class-container">
+    <h3>Class 3</h3>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/fo6reQIO8VE?list=PLW6ZJtqCeoWvJmbQrhfeLYhebwElIr8w1" title="Maths Playlist" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="class-container">
+    <h3>Class 4</h3>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/0JPLxcI6HVY?list=PLVLoWQFkZbhUts3U1vDht4FUDfzpkiM6q" title="Maths Playlist" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="class-container">
+    <h3>Class 5</h3>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/2tRPZsEeV5g?list=PLVLoWQFkZbhV0kPS6-8eWJw2GuBSSkjYD" title="Maths Playlist" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="class-container">
+    <h3>Class 6</h3>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/OERnQuoZaEY?list=PLVLoWQFkZbhXhyTmv71FsOx0MoMZOLelp" title="Maths Playlist" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="class-container">
+    <h3>Class 7</h3>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/iEu2tKEkY_I?list=PLVLoWQFkZbhVgT5aM-GRuQHnzthwllEHq" title="Maths Playlist" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="class-container">
+    <h3>Class 8</h3>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/mZyk1vy953Q?list=PLVLoWQFkZbhWwuZmoe15zj2Kmq7sApfcw" title="Maths Playlist" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="class-container">
+    <h3>Class 9</h3>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/T19XkOLUbC4?list=PLVLoWQFkZbhW1YSpUGOUrqAu7SvJCaZNQ" title="Maths Playlist" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="class-container">
+    <h3>Class 10</h3>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/P65OviVLW_c?list=PLVLoWQFkZbhWtsL4EkoiD2PJyeOBzRmx4" title="Maths Playlist" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <!-- Add more class containers for additional playlists -->
+    </div>`;
+          }
+           else if (subject === 'Science') {
+            videosContainer.innerHTML = `
+    <h2>Videos for ${subject}</h2>
+    <div class="playlist-container">
+    <div class="class-container">
+    <h3>Class 3</h3>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/909RZYjfFGE?list=PLW6ZJtqCeoWuYiJDluwn1b_nsNs_LYP7m" title="Science Playlist" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="class-container">
+    <h3>Class 4</h3>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/p3nec1lrsCY?list=PLW6ZJtqCeoWu6LK30rLamB8gjMOq0P2XK" title="Science Playlist" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="class-container">
+    <h3>Class 5</h3>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/2ARA5EW2anc?list=PLW6ZJtqCeoWulW-MkP5TdhlWwaYuBv9BO" title="Science Playlist" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="class-container">
+    <h3>Class 6</h3>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/_BY2BmMYsmE?list=PLVLoWQFkZbhXq3hjhx5TQMhL3lNiF_OLy" title="Science Playlist" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="class-container">
+    <h3>Class 7</h3>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/gDfNuLHVbWQ?list=PLVLoWQFkZbhUN3DiztHOVansWcBhCppjH" title="Science Playlist" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="class-container">
+    <h3>Class 8</h3>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/31Xglzp-Eec?list=PLVLoWQFkZbhV8K8NiJrFoMSwa_34UDMdg" title="Science Playlist" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="class-container">
+    <h3>Class 9</h3>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/Z5ZAY-lW4TU?list=PLVLoWQFkZbhW-jg1uCwnBXFE4dI9O87ni" title="Science Playlist" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="class-container">
+    <h3>Class 10</h3>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/NkSf-QrVTDE?list=PLVLoWQFkZbhWaXBY__hSb4UjRRlMNHQEg" title="Science Playlist" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <!-- Add more class containers for additional playlists -->
+    </div>`;
+          }else if (subject === 'Social') {
+            videosContainer.innerHTML = `
+    <h2>Videos for ${subject}</h2>
+    <div class="playlist-container">
+    <div class="class-container">
+    <h3>Class 3</h3>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/7znIVTqN0aY?list=PL2KP15Aw-29XG6LFCnb1DWAmej-UQBySP" title="Social Playlist" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="class-container">
+    <h3>Class 4</h3>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/Xea196ugSzQ?list=PLIVxQtdk068GxnlSyI2oZOBM55FCpbFOl&t=21" title="Social Playlist" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="class-container">
+    <h3>Class 5</h3>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/7znIVTqN0aY?list=PL2KP15Aw-29XG6LFCnb1DWAmej-UQBySP" title="Social Playlist" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="class-container">
+    <h3>Class 6</h3>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/2clQ3zWUIN0?list=PLVLoWQFkZbhX8NJIryAuRqcl9I3xFAZWC" title="Social Playlist" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="class-container">
+    <h3>Class 7 Geography</h3>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/uRFGyDZtv6A?list=PLVLoWQFkZbhVjHjFP9Okf_SGiG8drP3nk" title="Social Playlist" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="class-container">
+    <h3>Class 7 History</h3>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/et1EBbTlUi0?list=PLVLoWQFkZbhUUe49TU6pfgcuxA_YFh8m8" title="Social Playlist" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="class-container">
+    <h3>Class 8 History</h3>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/V0CcWG2LpDQ?list=PLVLoWQFkZbhWvzFnibzJ2jqPiQBu4KCss" title="Social Playlist" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="class-container">
+    <h3>Class 8 Civics</h3>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/Gf5fdakfRQY?list=PLVLoWQFkZbhXRvJkSY_v7x-kr0bgoUnKm" title="Social Playlist" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="class-container">
+    <h3>Class 9 Geography</h3>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/bN8UoWUD5GA?list=PLVLoWQFkZbhVnay9XxI3B1G3-6nOsXM2L" title="Social Playlist" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="class-container">
+    <h3>Class 9 History</h3>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/bN8UoWUD5GA?list=PLVLoWQFkZbhVnay9XxI3B1G3-6nOsXM2L" title="Social Playlist" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="class-container">
+    <h3>Class 10</h3>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/VVHE0tt__XU?list=PLVLoWQFkZbhUqoA8LckeDv_d75e0JaQwL" title="Social Playlist" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <!-- Add more class containers for additional playlists -->
+    </div>`;
+          }
+          else if (subject === 'English') {
+            videosContainer.innerHTML = `
+    <h2>Videos for ${subject}</h2>
+    <div class="playlist-container">
+    <div class="class-container">
+    <h3>Class 3</h3>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/LRNUOU2DW_8?list=PLVLoWQFkZbhUb372PfgDFDT5Uu9b5yAJQ" title="English Playlist" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <!-- Add more class containers for additional playlists -->
+    </div>`;
+          }
+          // Add other conditions for different subjects in a similar manner
+
+          videosContainer.style.display = 'block'; // Show the videos container
+        }
+    </script>
+</head>
+<body>
+<!-- Navigation bar -->
+<section id="header1" class="navbar">
+    <a href="#"><img src="/images/logo.png" width="80" height="30" class="logo" alt=""></a>
+    <div>
+        <ul id="nav-links">
+            <li class="ctn"><a href="/" th:href="@{/index}">Home</a></li>
+            <li class="ctn"><a href="/" th:href="@{/community}">Post Question</a></li>
+            <li class="active"><a href="/" th:href="@{/videos}">Videos</a></li>
+            <li class="ctn"><a href="/" th:href="@{/connect}">Connect</a></li>
+            <li class="ctn"><a href="/" th:href="@{/about}">About us</a></li>
+            <li class="ctn"><a href="/" th:href="@{/login}">Logout</a></li>
+        </ul>
+    </div>
+
+</section>
+<!-- Header -->
+<div class="header">
+    <h1>VIDEOS</h1>
+</div>
+
+<div class="content">
+    <ul class="subject-list">
+        <li class="subject">Maths</li>
+        <li class="subject">Science</li>
+        <li class="subject">Social</li>
+        <li class="subject">English</li>
+    </ul>
+    <div class="videos">
+        <!-- Videos related to the selected subject will appear here -->
+    </div>
+</div>
+</body>
+</html>
